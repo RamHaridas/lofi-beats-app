@@ -63,7 +63,7 @@ class _SpaceHomeState extends State<SpaceHome> {
       padding: EdgeInsets.all(5),
       child: Container(
         child: Center(
-          child: Image.network(url),
+          child: Image.network(url, fit: BoxFit.cover),
         ),
       ),
     );
@@ -82,17 +82,22 @@ class _SpaceHomeState extends State<SpaceHome> {
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: Column(children: [
-        CarouselSlider(
-          items: imageSliders,
-          options: CarouselOptions(
-              autoPlay: true,
-              enlargeCenterPage: true,
-              aspectRatio: 2.0,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _current = index;
-                });
-              }),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/top', arguments: images[_current]);
+          },
+          child: CarouselSlider(
+            items: imageSliders,
+            options: CarouselOptions(
+                autoPlay: true,
+                enlargeCenterPage: true,
+                aspectRatio: 2.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
+          ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

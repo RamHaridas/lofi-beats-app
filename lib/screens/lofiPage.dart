@@ -14,7 +14,6 @@ class LofiPage extends StatefulWidget {
 }
 
 class _LofiPageState extends State<LofiPage> {
-  //https://forms-rest-api.herokuapp.com/lofi
   var songs = [];
   @override
   void initState() {
@@ -42,11 +41,11 @@ class _LofiPageState extends State<LofiPage> {
         backgroundColor: Colors.grey[900],
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text("Hello there,",
-                  style: TextStyle(color: Colors.white, fontSize: 25)),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(10.0),
+            //   child: Text("Hello there,",
+            //       style: TextStyle(color: Colors.white, fontSize: 25)),
+            // ),
             Expanded(
               child: AnimationLimiter(
                 child: GridView.builder(

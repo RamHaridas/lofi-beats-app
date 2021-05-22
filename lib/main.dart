@@ -3,6 +3,7 @@ import 'package:browser786/screens/imageDetails.dart';
 import 'package:browser786/screens/lofiPlayer.dart';
 import 'package:browser786/screens/musicplayer.dart';
 import 'package:browser786/screens/splash.dart';
+import 'package:browser786/screens/topImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         '/home': (context) => DrawerScale(),
         '/music': (context) => MusicPlayer(),
         '/details': (context) => DetailsPage(),
-        '/lofi': (context) => LofiPlayer()
+        '/lofi': (context) => LofiPlayer(),
+        '/top': (context) => TopImageDetail(),
       },
       builder: EasyLoading.init(),
     );

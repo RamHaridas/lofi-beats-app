@@ -1,4 +1,6 @@
+import 'package:browser786/card/headerView.dart';
 import 'package:browser786/constants.dart';
+import 'package:browser786/screens/about.dart';
 import 'package:browser786/screens/browser.dart';
 import 'package:browser786/screens/lofiPage.dart';
 import 'package:browser786/screens/musicSearch.dart';
@@ -13,7 +15,13 @@ class DrawerScale extends StatefulWidget {
 
 class _DrawerScaleState extends State<DrawerScale> {
   late int selectedMenuItemId;
-  List<Widget> screens = [WebBrowser(), MusicSearch(), SpaceHome(), LofiPage()];
+  List<Widget> screens = [
+    WebBrowser(),
+    MusicSearch(),
+    SpaceHome(),
+    LofiPage(),
+    AboutPage()
+  ];
   Menu menu = Menu(items: [
     MenuItem(
         title: "Browse", id: 0, icon: Icons.search, textStyle: navBarTextStyle),
@@ -28,7 +36,8 @@ class _DrawerScaleState extends State<DrawerScale> {
         icon: Icons.travel_explore,
         textStyle: navBarTextStyle),
     MenuItem(
-        title: "Lofi", id: 3, icon: Icons.radio, textStyle: navBarTextStyle)
+        title: "Lofi", id: 3, icon: Icons.radio, textStyle: navBarTextStyle),
+    MenuItem(title: "Info", id: 4, icon: Icons.info, textStyle: navBarTextStyle)
   ]);
   @override
   void initState() {
@@ -42,6 +51,8 @@ class _DrawerScaleState extends State<DrawerScale> {
       appBar: AppBar(title: Text(menu.items[selectedMenuItemId].title)),
       drawers: [
         SideDrawer(
+          headerView: HeaderView(),
+          degree: 35,
           slide: true,
           duration: Duration(milliseconds: 300),
           menu: menu,

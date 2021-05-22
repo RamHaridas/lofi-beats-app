@@ -1,13 +1,15 @@
+import 'dart:convert';
 import 'dart:math';
 import 'package:audio_session/audio_session.dart';
 import 'package:browser786/constants.dart';
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+//import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class LofiPlayer extends StatefulWidget {
   @override
@@ -43,7 +45,31 @@ class _MusicPlayerState extends State<LofiPlayer> {
           ),
         ),
       );
+      getSongs();
     });
+  }
+
+  void getSongs() async {
+    var songs = [];
+    var res = await http.get(Uri.parse(lofi));
+    if (res.statusCode == 200) {
+      setState(() {
+        songs = jsonDecode(res.body);
+        for (var song in songs) {
+          if (song['title'] != (this.song['title'])) {
+            _playlist.add(AudioSource.uri(
+              Uri.parse(song['song']),
+              tag: AudioMetadata(
+                album: song['album'],
+                title: song['title'],
+                artwork: song['image'],
+              ),
+            ));
+          }
+        }
+      });
+    }
+    //print(songs);
   }
 
   Future<void> _init() async {

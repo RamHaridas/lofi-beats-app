@@ -1,6 +1,5 @@
+import 'package:browser786/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_downloader/image_downloader.dart';
 
 class DetailsPage extends StatefulWidget {
   @override
@@ -30,8 +29,10 @@ class _DetailsPageState extends State<DetailsPage> {
     var data = ModalRoute.of(context)!.settings.arguments;
     setData(data);
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       body: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
               child: Hero(
@@ -71,7 +72,8 @@ class _DetailsPageState extends State<DetailsPage> {
                         Text(
                           'By $camera',
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 15,
+                            color: Colors.orangeAccent,
                           ),
                         ),
                         Text(
@@ -89,53 +91,24 @@ class _DetailsPageState extends State<DetailsPage> {
                           "Status of Rover: " + details,
                           style: TextStyle(
                             fontSize: 14,
+                            color: Colors.white,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: FlatButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          color: Colors.lightBlueAccent,
-                          child: Text(
-                            'Back',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Expanded(
-                        child: FlatButton(
-                          onPressed: () {
-                            //saveImage(url);
-                          },
-                          padding: EdgeInsets.symmetric(vertical: 15),
-                          color: Colors.lightBlueAccent,
-                          child: Text(
-                            'Save',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),
           ],
         ),
+      ),
+      bottomSheet: Container(
+        color: Colors.grey[900],
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text("Image by", style: navBarTextStyle),
+          Image.asset('assets/icons/nasa.png', height: 50, width: 50)
+        ]),
       ),
     );
   }
