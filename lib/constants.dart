@@ -26,5 +26,5 @@ const lofi = "https://forms-rest-api.herokuapp.com/lofi";
 const sam = "https://www.youtube.com/channel/UCuoKuTCQ9dmPIgOgyLm9HgQ";
 const randomImage =
     "https://content.fortune.com/wp-content/uploads/2020/03/NASA-Hiring-Astronauts-2020.jpg";
-//BURywN6AJo1TTDXDhQXycEQR3ASXHjccdtLGle2y
+
 //https://api.nasa.gov/
