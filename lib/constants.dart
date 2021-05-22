@@ -21,7 +21,7 @@ const navBarTextStyle =
     TextStyle(fontWeight: FontWeight.bold, color: Colors.white);
 
 const musicCardTextStyle = TextStyle(color: Colors.white);
-const lofi = "https://forms-rest-api.herokuapp.com/lofi";
+const lofi = "";
 
 const sam = "https://www.youtube.com/channel/UCuoKuTCQ9dmPIgOgyLm9HgQ";
 const randomImage =
